@@ -90,7 +90,7 @@ const comments = [
  // Excercise 1
 
  let veryOldInventors = inventors.filter(inventor => {
-    return inventors.year >= 1500 && inventor.year <= 1599;
+    return inventor.year >= 1500 && inventor.year <= 1599;
 
  });
 
@@ -161,7 +161,7 @@ console.log('Exercise 4 correct result: ', {
 
 let firstLast = people.map(person => {
     const [last, first] = person.split(', ');
-    return '${first}';
+    return `${first} ${last}`;
 });
 
 console.log('Exercise 5 my result: ', firstLast);
@@ -210,14 +210,20 @@ console.log('Exercise 5 correct result: ', [
 
 //Excercise 6 
 
-let isAdultPresent = devs.some(dev => 2024 - dev.year >= 18);
+let isAdultPresent = devs.some(dev => {
+    const currentYear = new Date().getFullYear(); 
+    return currentYear - dev.year >= 18;
+});
 
 console.log('Exercise 6 my result: ', isAdultPresent);
 console.log('Exercise 6 correct result: ', true);
 
 //Excercise 7
 
-let isEveryone19OrOlder = devs.every(dev => 2024 - dev.year >= 19);
+let isEveryone19OrOlder = devs.every(dev => {
+    const currentYear = new Date().getFullYear();
+    return currentYear - dev.year >= 19;
+});
 
 console.log('Exercise 7 my result: ', isEveryone19OrOlder);
 console.log('Exercise 7 correct result: ', false);
